@@ -5,47 +5,44 @@ class LinesController < ApplicationController
 	end
 
 	def new
+		@line = TrainLine.new
 	end
 
 	def create
-		@line = TrainLine.new
-		@line.name = params[:name]
-		@line.frequency = params[:frequency]
-		# would params[frequency] <= no colon work?
-		@line.save
-		redirect_to 'http://localhost:3000/lines'
+		@line = TrainLine.create(params[:train_line])
+		redirect_to train_lines_url
 	end
 
 	def show
-		line_id = params[:id]
-		@line = TrainLine.find_by_id(line_id)
+		@line = TrainLine.find_by_id(params[:id])
 	end
 
 	def edit
-		line_id = params[:id]
-		@line = TrainLine.find_by_id(line_id)
+		@line = TrainLine.find_by_id(params[:id])
 	end
 
 	def update	
 		# NOT understanding everything happening here in the update action.
-		line_id = params[:id]
-		name = params[:name]
-		frequency = params[:frequency]
+		# 	line_id = params[:id]
+		# 	name = params[:train_line][:name]
+		# 	frequency = params[:train_line][:frequency]
+		# 
+		# 	@line = TrainLine.find_by_id(line_id)
+		# 
+		# 	@line.name = name
+		# 	@line.frequency = frequency
+		# 	@line.save
+		
+		@line = TrainLine.find_by_id(params[:id])
+		@line.update_attributes(params[:train_line])
 	
-		@line = TrainLine.find_by_id(line_id)
-	
-		@line.name = name
-		@line.frequency = frequency
-		@line.save
-	
-		redirect_to 'http://localhost:3000/lines/#{@line.id}'
+		redirect_to train_line_url(@line.id)
 	end
 	
 	def destroy
-		line_id = params[:id]
-		@line = TrainLine.find_by_id(line_id)
+		@line = TrainLine.find_by_id(params[:id])
 		@line.destroy
-		redirect_to 'http://localhost:3000/lines'
+		redirect_to train_lines_url
 	end
 	
 end

@@ -4,9 +4,10 @@
 	<%= @line.each do |line| %>
 	<li><%= line.name %></li>
 	<li>
-	  <a href="http://localhost:3000/lines/<%= line.id %>"><%= line.name %></a>
-	  <%= link_to "Delete", "http://localhost:3000/lines/#{line.id}", :method => :delete %>
+	  <%= link_to line.name, train_line_url(line.id) %>
+	  <%= link_to "Delete", train_line_url(line.id), :method => :delete %>
 	</li>
 	<% end %>
 </ul>
 
+<%= link_to "Add a New Train Line", new_train_line_url %>

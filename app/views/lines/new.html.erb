@@ -1,17 +1,5 @@
 <h1><font color=purple size=69>Create new choo.</font></h1>
 
-<p>
-	<%= form_tag('http://localhost:3000/lines') do %>
-		<%= label_tag :name, 'The name of the train line is:' %>
-		<%= text_field_tag :name %>
-</p>
-<p>
-		<%= label_tag :frequency, 'The frequency of the train line is:' %>
-		<%= text_field_tag :frequency %>
-</p>
-<p>
-		<%= submit_tag 'Create Line' %>
-	<% end %>
-</p>
+<% render '_form' %>
 	
-<a href "http://localhost:3000/lines">Back to All Lines.</a>
+<%= link_to "Back to All Lines", train_lines_url %>

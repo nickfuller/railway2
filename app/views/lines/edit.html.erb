@@ -1,0 +1,15 @@
+<h1>Edit <%= @line.name %></p>
+  
+<%= form_tag('http://localhost:3000/lines/#{@line.id}', :method => :put) do %>
+<!-- What is the ":method => :put" doing there? -->
+  <%= label_tag :name, 'The name of the train line is:' %>
+  <%= text_field_tag :name, @line.name %>
+  
+  <%= label_tag :frequency, 'The frequency of the train is:' %>
+  <%= text_field_tag :frequency, @line.frequency %>
+  
+  <%= submit_tag 'Update Line' %>
+<% end %>
+
+<a href "http://localhost:3000/lines">Back to All Lines.</a>
+<a href "http://localhost:3000/lines/<%= @line.id %>">Back to Line Details</a>

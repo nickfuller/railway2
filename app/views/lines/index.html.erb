@@ -1,14 +1,14 @@
 <h1><font color=teal size=69>All Our Choo Choos!</font></h1>
 
-<ul>
-	<%= @lines.each do |line| %>
-	  <li>
-	    <font color=teal size=12 face="Verdana">
-	      <%= link_to line.name, train_line_url(line.id) %>
-	      <%= link_to "Delete", train_line_url(line.id), :method => :delete %>
-	    </font>
-	  </li>
-	<% end %>
-</ul>
+<%= @lines.each do |line| %>
+	<p>
+	  <font color=teal size=6 face="Verdana">
+	    <%= link_to line.name, train_line_url(line.id) %>
+	  </font>
+	  <font color=torqoise size=3 face="Verdana">
+	    <%= link_to "Delete", train_line_url(line.id), :method => :delete %>
+	  </font>
+	</p>
+<% end %>
 
-<%= link_to "Add a New Train Line", new_train_line_url %>
+<p><font face="Verdana"><%= link_to "Add a New Train Line", new_train_line_url %></font></p>

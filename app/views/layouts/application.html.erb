@@ -7,7 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <p id="notice"><%= notice %></p>
+  <% if flash[:notice] %>
+  <p id="notice"><%= flash[:notice] %></p>
+  <% end %>
   <%= yield %>
   <!-- I don't understand what yield is doing -->
 </body>

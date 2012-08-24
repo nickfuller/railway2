@@ -5,7 +5,8 @@ class LinesController < ApplicationController
 		
 		respond_to do |format|
 			format.html
-			format.json { render :json => @line }		# Q: What does this json stuff do?
+			format.json { render :json => @line }		# Q: What does this json stuff do? A: allows computers to talk to my app, but I'm not actively using it
+			
 		end
 	end
 
@@ -17,10 +18,12 @@ class LinesController < ApplicationController
 		@line = TrainLine.create(params[:train_line])
 				
 		if @line.save
-			redirect_to train_line_url(@line), :notice => "Successfully saved!"
+			
+			redirect_to train_line_url(@line)
+			flash[:notice] = "Successfully saved!"
 		else
 			flash[:notice] = "Something WdendT WROonj!!!...."
-			render 'new' # HOW are we rendering 'new' and what is 'new'?
+			render 'new' # HOW are we rendering 'new' and what is 'new'? A: allows posted albeit incomplete data to survive intact
 		end
 	end
 
@@ -50,15 +53,12 @@ class LinesController < ApplicationController
 		
 		@line = TrainLine.find_by_id(params[:id])
 		
-		if @line.update_attributes(params[:train_line])
+		if @line.update_attributes(params[:train_line])	
 			redirect_to train_line_url(@line.id)
+			flash[:notice] = 'Congrats!'
 		else
-			flash[:notice] = "Something went horribly wrong, maybe you didn't enter a value into a field."
+			flash.now[:notice] = "Something went horribly wrong, maybe you didn't enter a value into a field."
 			render 'edit'
-			# It's confusing how "flash" seems to be an action, 
-      # yet it comes prior to the object it's acting on
-      # (a notice of 'Something...wrong')...Am I thinking about
-      # it accurately?
 		end		
 	end
 	

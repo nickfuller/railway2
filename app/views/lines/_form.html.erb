@@ -1,7 +1,22 @@
 <%= form_for @line do |f| %>
-  <p><%= f.label :name, 'The name of the train line is:' %>
-  <%= f.text_field :name %></p>
-  <p><%= f.label :frequency, 'The frequency of the train line is:' %>
-  <%= f.text_field :frequency %></p>
-  <p><%= f.submit 'Create Line' %></p>
+  <p>
+    <font color=green size=4 face="Verdana">
+      <%= f.label :name, 'The name of the train line is:' %>
+      <%= f.text_field :name %>
+    </font>
+  </p>
+
+  <p>
+    <font color=green size=4 face="Verdana">
+      <%= f.label :frequency, 'The name of the train line is:' %>
+      <%= f.text_field :frequency %>
+    </font>
+  </p>
+  
+  <p>
+    <font color=green size=4 face="Verdana">
+      <%= f.submit 'Create Line' %>
+    </font>
+  </p>
+  
 <% end %>

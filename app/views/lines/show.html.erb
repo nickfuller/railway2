@@ -1,6 +1,7 @@
-<h1><%= @line.name %> Details</h1>
+<h1><font color=salmon size=30 face="Arial"><%= @line.name %> Details</font></h1>
 
 <p>The <%= @line.name %> line runs every <%= @line.frequency %> minutes.</p>
 
-<%= link_to "Back to All Lines", train_lines_url %>
-<%= link_to "Edit Line", edit_train_line_url(@line.id) %>
+<p><font color=salmon size=20><%= link_to "Edit Line", edit_train_line_url(@line.id) %></font></p>
+
+<p><font color=salmon size=20><%= link_to "Back to All Lines", train_lines_url %></font></p>

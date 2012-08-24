@@ -1,6 +1,6 @@
-<h1>Edit <%= @line.name %></p>
+<h1><font color=teal size=55>Edit <%= @line.name %></font></h1>
 
-<% render '_form' %>
+<% render 'form' %>
 
 <%= link_to 'Back to All Lines', train_lines_url %> 
 <%= link_to 'Back to Line Details', train_line_url(@line.id) %>

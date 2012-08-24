@@ -1,11 +1,7 @@
-<ul>
 <%= form_for @line do |f| %>
-  <li><%= f.label :name, 'The name of the train line is:' %>
-  <%= f.text_field :name %></li>
-
-  <li><%= f.label :frequency, 'The frequency of the train line is:' %>
-  <%= f.text_field :frequency %></li>
-  
-  <li><%= f.submit 'Create Line' %></li>
+  <p>><%= f.label :name, 'The name of the train line is:' %>
+  <%= f.text_field :name %></p>
+  <p><%= f.label :frequency, 'The frequency of the train line is:' %>
+  <%= f.text_field :frequency %></p>
+  <p><%= f.submit 'Create Line' %></p>
 <% end %>
-</ul>

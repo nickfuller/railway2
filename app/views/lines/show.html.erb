@@ -1,23 +1,15 @@
 <h1>
-  <font color=salmon size=30 face="Arial">
     <%= @line.name %> Details
-  </font>
 </h1>
 
 <p>
-  <font color=teal face="Verdana" size=3>
     The <%= @line.name %> line runs every <%= @line.frequency %> minutes.
-  </font>
 </p>
 
 <p>
-  <font color=teal face="Verdana">
     <%= link_to "Edit Line", edit_train_line_url(@line.id) %>
-  </font>
 </p>
 
 <p>
-  <font color=teal face="Verdana">
     <%= link_to "Back to All Lines", train_lines_url %>
-  </font>
 </p>
